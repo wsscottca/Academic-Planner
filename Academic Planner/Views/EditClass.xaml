@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view_models="clr-namespace:Academic_Planner.View_Models"
+             xmlns:models="clr-namespace:Academic_Planner.Models"
+             x:DataType="view_models:ClassViewModel"
+             x:Class="Academic_Planner.Views.EditClass">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+                <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+            </Frame>
+            <StackLayout Padding="10">
+                <Label Text="Info" FontSize="Subtitle" TextColor="#003057"/>
+                <Label Text="Title" FontSize="Caption" TextColor="#003057"/>
+                <Entry x:Name="title"/>
+                <Label Text="Status" FontSize="Caption" TextColor="#003057"/>
+                <Picker x:Name="status" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Start" FontSize="Caption" TextColor="#003057"/>
+                        <DatePicker x:Name="start"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="End" FontSize="Caption" TextColor="#003057"/>
+                        <DatePicker x:Name="end"/>
+                    </StackLayout>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Instructor" FontSize="Subtitle" TextColor="#003057" Grid.Row="0" Grid.Column="0"/>
+                    <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="instructorName" FontSize="Caption" HorizontalOptions="FillAndExpand"/>
+                        <Label x:Name="instructorPhone" FontSize="Caption" HorizontalOptions="FillAndExpand"/>
+                        <Label x:Name="instructorEmail" FontSize="Caption" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <Button BackgroundColor="#003057" TextColor="#FFFFFF" Text="Edit" Grid.Row="0" Grid.Column="1" Padding="0" VerticalOptions="Center" FontSize="Caption" Clicked="ButtonEditInstructor_Clicked"/>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Notifications" TextColor="#003057" FontSize="Subtitle" Grid.Row="0"/>
+                    <StackLayout Grid.Column="0" Grid.Row="1">
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="notifStart" Text="Start: " FontSize="Caption" Margin="0,5,0,0"/>
+                            <Switch x:Name="toggleNotifStart" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="notifEnd" Text="End: " FontSize="Caption" Margin="0,5,0,0"/>
+                            <Switch x:Name="toggleNotifEnd" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Notes" TextColor="#003057" FontSize="Subtitle" Grid.Row="0"/>
+                    <Button BackgroundColor="#003057" TextColor="#FFFFFF" Text="Edit" Grid.Row="0" Grid.Column="1" Padding="0" VerticalOptions="Center" FontSize="Caption" Clicked="ButtonEditNotes_Clicked"/>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Assessments" TextColor="#003057" FontSize="Subtitle" Grid.Row="0"/>
+                    <Button BackgroundColor="#003057" TextColor="#FFFFFF" Text="Edit" Grid.Row="0" Grid.Column="1" Padding="0" VerticalOptions="Center" FontSize="Caption" Clicked="ButtonEditAssessments_Clicked"/>
+                    <ListView
+                        BackgroundColor="Transparent"
+                        Margin="5,0"
+                        ItemsSource="{Binding Assessments}"
+                        RowHeight="20"
+                        SelectionMode="None"
+                        IsEnabled="False"
+                        SeparatorVisibility="None"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Assessment">
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontSize="Caption" Grid.Column="0" Margin="5, 0, 0, 0" LineBreakMode="NoWrap" >
+                                            <Label.Text>
+                                                <MultiBinding StringFormat="{}{0} - {1}">
+                                                    <Binding Path="Type"/>
+                                                    <Binding Path="Title"/>
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>
+                                        <Label FontSize="Caption" Grid.Column="1" Margin="0, 0, 5, 0" HorizontalOptions="End">
+                                            <Label.Text>
+                                                <MultiBinding StringFormat="{}{0:MM/dd/yyyy} - {1:MM/dd/yyyy}">
+                                                    <Binding Path="Start"/>
+                                                    <Binding Path="End"/>
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,10">
+                    <Button Text="Submit" BackgroundColor="#003057" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" Clicked="ButtonSubmit_Clicked"/>
+                    <Button Text="Cancel" BackgroundColor="#003057" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" Clicked="ButtonCancel_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

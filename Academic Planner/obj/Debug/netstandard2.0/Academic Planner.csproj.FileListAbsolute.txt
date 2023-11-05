@@ -1,0 +1,27 @@
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\bin\Debug\netstandard2.0\Academic Planner.deps.json
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\bin\Debug\netstandard2.0\Academic Planner.dll
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\bin\Debug\netstandard2.0\ref\Academic Planner.dll
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\bin\Debug\netstandard2.0\Academic Planner.pdb
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\AddClass.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\AddInstructor.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\AddNote.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\AddTerm.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\App.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\Assessments.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\ClassDetail.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\EditClass.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\EditInstructor.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\EditNote.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\EditTerm.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\Notes.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Views\TermDetail.xaml.g.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.AssemblyInfoInputs.cache
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.AssemblyInfo.cs
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.csproj.CoreCompileInputs.cache
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.dll
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\ref\Academic Planner.dll
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.pdb
+C:\Users\Will\source\repos\Academic Planner\Academic Planner\Academic Planner\obj\Debug\netstandard2.0\Academic Planner.csproj.AssemblyReference.cache

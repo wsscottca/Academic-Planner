@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Planner.Views.Assessments">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+                <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+            </Frame>
+            
+            <StackLayout Padding="10">
+                <Label Text="Performance Assessment" FontSize="Subtitle" TextColor="#003057"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                        <Label Text="Title" FontSize="Caption" TextColor="#003057"/>
+                        <Entry x:Name="perfTitle"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="0" Grid.Row="1">
+                        <Label Text="Start" FontSize="Caption" TextColor="#003057"/>
+                        <DatePicker x:Name="perfStart"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="1">
+                        <Label Text="End" FontSize="Caption" TextColor="#003057"/>
+                        <DatePicker x:Name="perfEnd"/>
+                    </StackLayout>
+                    <Label Text="Notifications" TextColor="#003057" FontSize="Subtitle" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+                        <Label Text="Start: " FontSize="Caption" Margin="0,5,0,0"/>
+                        <Switch x:Name="perfToggleNotifStart" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
+                        <Label Text="End: " FontSize="Caption" Margin="0,5,0,0"/>
+                        <Switch x:Name="perfToggleNotifEnd" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" HorizontalOptions="FillAndExpand">
+                        <Button HorizontalOptions="FillAndExpand" Text="Update" BackgroundColor="#003057" TextColor="#FFFFFF" FontSize="Caption" Padding="0" Clicked="ButtonPerfUpdate_Clicked"/>
+                        <Button HorizontalOptions="FillAndExpand" Text="Delete" BackgroundColor="#003057" TextColor="#FFFFFF" FontSize="Caption" Padding="0" Clicked="ButtonPerfDelete_Clicked"/>
+                    </StackLayout>
+                </Grid>
+                <Label Text="Objective Assessment" FontSize="Subtitle" TextColor="#003057"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                        <Label Text="Title" FontSize="Caption" TextColor="#003057"/>
+                        <Entry x:Name="objTitle"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="0" Grid.Row="1">
+                        <Label Text="Start" FontSize="Caption" TextColor="#003057"/>
+                        <DatePicker x:Name="objStart"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="1">
+                        <Label Text="End" FontSize="Caption" TextColor="#003057"/>
+                        <DatePicker x:Name="objEnd"/>
+                    </StackLayout>
+                    <Label Text="Notifications" TextColor="#003057" FontSize="Subtitle" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+                        <Label Text="Start: " FontSize="Caption" Margin="0,5,0,0"/>
+                        <Switch x:Name="objToggleNotifStart" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
+                        <Label Text="End: " FontSize="Caption" Margin="0,5,0,0"/>
+                        <Switch x:Name="objToggleNotifEnd" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" HorizontalOptions="FillAndExpand">
+                        <Button HorizontalOptions="FillAndExpand" Text="Update" BackgroundColor="#003057" TextColor="#FFFFFF" FontSize="Caption" Padding="0" Clicked="ButtonObjUpdate_Clicked"/>
+                        <Button HorizontalOptions="FillAndExpand" Text="Delete" BackgroundColor="#003057" TextColor="#FFFFFF" FontSize="Caption" Padding="0" Clicked="ButtonObjDelete_Clicked"/>
+                    </StackLayout>
+                </Grid>
+                <StackLayout Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" HorizontalOptions="FillAndExpand">
+                    <Button HorizontalOptions="FillAndExpand" Text="Close" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="ButtonClose_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

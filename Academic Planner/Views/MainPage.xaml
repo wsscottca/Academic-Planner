@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:Academic_Planner.View_Models"
+             xmlns:Model="clr-namespace:Academic_Planner.Models"
+             x:DataType="ViewModels:DegreeViewModel"
+             x:Class="Academic_Planner.MainPage">
+    <ContentPage.BindingContext>
+        <ViewModels:DegreeViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+            <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+        </Frame>
+        <StackLayout Padding="10">
+            <Label Text="Welcome!" TextColor="#003057" FontSize="Title" Padding="30,10,30,10" HorizontalOptions="Center"/>
+
+            <ContentView BackgroundColor="#003057" HeightRequest="75" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*" />
+                        <ColumnDefinition Width="1.5*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Degree Progress" TextColor="#FFFFFF" FontSize="Subtitle" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                    <ProgressBar x:Name="progress" BackgroundColor="#AAAAAA" ProgressColor="#EEEEEE" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Fill" Margin="5,5,5,11" ScaleY="2"/>
+                </Grid>
+            </ContentView>
+
+            <ContentView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="350"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView
+                        BackgroundColor="Transparent"
+                        Margin="5,0"
+                        ItemsSource="{Binding Terms}"
+                        RowHeight="75"
+                        SelectionMode="None"
+                        Grid.Row="0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="Model:Term">
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*" />
+                                            <RowDefinition Height="1*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10*" />
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label TextColor="#003057" Text="{Binding Title}" FontSize="Subtitle" Grid.Row="0" Grid.Column="0" Margin="5" />
+                                        <Label TextColor="#003057" FontSize="Caption" Grid.Row="1" Grid.Column="0" Margin="5, 0, 0, 0" >
+                                            <Label.Text>
+                                                <MultiBinding StringFormat="{}{0:MM/dd/yyyy} - {1:MM/dd/yyyy}">
+                                                    <Binding Path="Start"/>
+                                                    <Binding Path="End"/>
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center">
+                        <Button BackgroundColor="#003057" Text="Add" TextColor="White" FontSize="Subtitle" Grid.Column="0" Grid.Row="0" Clicked="ButtonAdd_Clicked" WidthRequest="200" />
+                    </StackLayout>
+                </Grid>
+            </ContentView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

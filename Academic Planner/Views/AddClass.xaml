@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Planner.Views.AddClass"
+             BindingContext="TermViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+                <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+            </Frame>
+            <StackLayout Padding="10">
+                <Label Text="Title" FontSize="Subtitle" TextColor="#003057" />
+                <Entry x:Name="title"></Entry>
+                <Label Text="Status" FontSize="Caption" TextColor="#003057"/>
+                <Picker x:Name="status" />
+                <Label Text="Instructor" FontSize="Subtitle" TextColor="#003057" />
+                <Entry x:Name="instructor"></Entry>
+                <Label Text="Start" FontSize="Subtitle" TextColor="#003057" />
+                <DatePicker x:Name="start"></DatePicker>
+                <Label Text="End" FontSize="Subtitle" TextColor="#003057" />
+                <DatePicker x:Name="end"></DatePicker>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Button Text="Submit" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="SubmitButton_Clicked"/>
+                    <Button Text="Cancel" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="CancelButton_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

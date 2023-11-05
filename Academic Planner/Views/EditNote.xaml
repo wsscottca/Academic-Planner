@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Planner.Views.EditNote">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+                <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+            </Frame>
+            <StackLayout Padding="10">
+                <Label Text="Add Note" TextColor="#003057" FontSize="Title" HorizontalOptions="Center" />
+                <Label Text="Title" TextColor="#003057" FontSize="Caption" />
+                <Entry x:Name="title" />
+                <Label Text="Message" TextColor="#003057" FontSize="Caption"/>
+                <Editor x:Name="message" HeightRequest="300"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Button HorizontalOptions="FillAndExpand" Text="Save" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="ButtonSave_Clicked"/>
+                    <Button HorizontalOptions="FillAndExpand" Text="Delete" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="ButtonDelete_Clicked"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Button HorizontalOptions="FillAndExpand" Text="Share" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="ButtonShare_Clicked"/>
+                    <Button HorizontalOptions="FillAndExpand" Text="Cancel" BackgroundColor="#003057" TextColor="#FFFFFF" Clicked="ButtonCancel_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

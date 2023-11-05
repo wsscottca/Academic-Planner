@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view_models="clr-namespace:Academic_Planner.View_Models"
+             xmlns:models="clr-namespace:Academic_Planner.Models"
+             x:DataType="view_models:ClassViewModel"
+             x:Class="Academic_Planner.Views.Notes">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+                <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+            </Frame>
+            <StackLayout Padding="10">
+                <Label Text="Notes" TextColor="#003057" FontSize="Title" HorizontalOptions="Center" />
+                <ListView
+                        BackgroundColor="Transparent"
+                        Margin="5,0"
+                        ItemsSource="{Binding Notes}"
+                        RowHeight="100"
+                        SelectionMode="None"
+                        HeightRequest="400">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Note">
+                            <ViewCell Tapped="ViewCell_Tapped">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="3*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Title}" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="{Binding Created, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Column="1" Grid.Row="0">
+                                    </Label>
+                                    <Label Text="{Binding Message}" Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="15" Padding="0,0,5,0"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Add" BackgroundColor="#003057" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" Clicked="ButtonAdd_Clicked" Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

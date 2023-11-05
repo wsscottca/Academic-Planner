@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view_models="clr-namespace:Academic_Planner.View_Models"
+             xmlns:models="clr-namespace:Academic_Planner.Models"
+             x:Class="Academic_Planner.Views.ClassDetail"
+             x:DataType="view_models:ClassViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#FFFFFF" Padding="24" HeightRequest="25">
+                <Image Source="WGULogo.png" HorizontalOptions="Center"/>
+            </Frame>
+            <StackLayout Padding="10">
+                <Label TextColor="#003057" x:Name="classTitle" HorizontalOptions="Center" FontSize="Title"/>
+                <ContentView BackgroundColor="#003057" HeightRequest="75" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="15" />
+                            <RowDefinition Height="15" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="instructorName"  TextColor="#FFFFFF" FontSize="Subtitle" Grid.Row="0" Margin="5, 5, 0, 0"/>
+                        <Label x:Name="instructorPhone" TextColor="#FFFFFF" FontSize="Caption" Grid.Row="1" Grid.Column="0" Margin="5, 0, 0, 0" />
+                        <Label x:Name="instructorEmail" TextColor="#FFFFFF" FontSize="Caption" Grid.Row="2" Grid.Column="0" Margin="5, 0, 0, 0" />
+                    </Grid>
+                </ContentView>
+                <ContentView Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Label TextColor="#003057" FontSize="Subtitle" Text="Start" />
+                            <Label TextColor="#003057" FontSize="Subtitle" x:Name="start" />
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Label TextColor="#003057" FontSize="Subtitle" Text="End"/>
+                            <Label TextColor="#003057" FontSize="Subtitle" x:Name="end"/>
+                        </StackLayout>
+                    </Grid>
+                </ContentView>
+                <ContentView Margin="5">
+                    <Label x:Name="notifications" TextColor="#003057" FontSize="Subtitle" />
+                </ContentView>
+                <ContentView Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="120"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Notes" TextColor="#003057" FontSize="Subtitle" Grid.Row="0"/>
+                        <ListView
+                        BackgroundColor="Transparent"
+                        Margin="5,0"
+                        ItemsSource="{Binding Notes}"
+                        RowHeight="50"
+                        SelectionMode="None"
+                        Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="models:Note">
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Title}" Grid.Column="0" Grid.Row="0" />
+                                            <Label Text="{Binding Created, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Column="1" Grid.Row="0">
+                                            </Label>
+                                            <Label Text="{Binding Message}" Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="5" Margin="0,0,5,0" LineHeight="5" LineBreakMode="NoWrap"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </ContentView>
+                <ContentView Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Assessments" TextColor="#003057" FontSize="Subtitle" Grid.Row="0"/>
+                        <ListView
+                        BackgroundColor="Transparent"
+                        Margin="5,0"
+                        ItemsSource="{Binding Assessments}"
+                        RowHeight="20"
+                        SelectionMode="None"
+                        IsEnabled="False"
+                        SeparatorVisibility="None"
+                        Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="models:Assessment">
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Caption" Grid.Column="0" Margin="5, 0, 0, 0" LineBreakMode="NoWrap" >
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0} - {1}">
+                                                        <Binding Path="Type"/>
+                                                        <Binding Path="Title"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                            <Label FontSize="Caption" Grid.Column="1" Margin="0, 0, 5, 0" HorizontalOptions="End">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0:MM/dd/yyyy} - {1:MM/dd/yyyy}">
+                                                        <Binding Path="Start"/>
+                                                        <Binding Path="End"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </ContentView>
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10">
+                <Button BackgroundColor="#003057" TextColor="#FFFFFF" Text="Edit" HorizontalOptions="FillAndExpand" Clicked="ButtonEdit_Clicked"/>
+                <Button BackgroundColor="#003057" TextColor="#FFFFFF" Text="Delete" HorizontalOptions="FillAndExpand" Clicked="ButtonDelete_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
